@@ -1,3 +1,30 @@
+function replaceHeroImg() {
+  // fetch unsplash only on homepage
+  if (window.location.pathname == '/' ){
+      fetch('https://api.unsplash.com/photos/random', {
+        headers: {
+          Authorization: 'Client-ID Qu3XYe6qyf8Zyed2uhKJJTM1-zMVtjlwOMUgKC2RS7I'
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        const imageUrl = data.urls.regular;
+        // use the imageUrl as needed
+        console.log(imageUrl);
+
+        // change img srcset
+        let img = document.querySelector(".image-with-text__media img");
+        img.srcset=sessionStorage.getItem('unsplashImg');
+        sessionStorage.setItem('unsplashImg', imageUrl);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  }
+
+}
+replaceHeroImg();
+
 function getFocusableElements(container) {
   return Array.from(
     container.querySelectorAll(

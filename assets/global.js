@@ -15,7 +15,6 @@ function replaceHeroImg() {
         // change img srcset
         let img = document.querySelector(".image-with-text__media img");
         img.srcset=sessionStorage.getItem('unsplashImg');
-        sessionStorage.setItem('unsplashImg', imageUrl);
       })
       .catch(error => {
         console.error('Error:', error);

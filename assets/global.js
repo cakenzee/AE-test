@@ -8,9 +8,8 @@ function replaceHeroImg() {
       })
       .then(response => response.json())
       .then(data => {
-        const imageUrl = data.urls.regular;
         // use the imageUrl as needed
-        console.log(imageUrl);
+        const imageUrl = data.urls.regular;
 
         // change img srcset
         let img = document.querySelector(".image-with-text__media img");

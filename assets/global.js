@@ -13,7 +13,7 @@ function replaceHeroImg() {
 
         // change img srcset
         let img = document.querySelector(".image-with-text__media img");
-        img.srcset=sessionStorage.getItem('unsplashImg');
+        img.srcset=imageUrl;
       })
       .catch(error => {
         console.error('Error:', error);
@@ -793,7 +793,7 @@ class VariantSelects extends HTMLElement {
       this.toggleAddButton(true, '', true);
       this.setUnavailable();
     } else {
-      //this.updateMedia();
+      this.updateMedia();
       this.updateURL();
       this.updateVariantInput();
       this.renderProductInfo();
